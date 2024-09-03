@@ -6,6 +6,11 @@ set(CMAKE_POSITION_INDEPENDENT_CODE TRUE) # Mainly for FMT
 project(gr4-example-apps CXX)
 include(GNUInstallDirs)
 
+if (CMAKE_CXX_COMPILER_ID MATCHES ".*Clang") # set default C++ STL to Clang's libc++ when using Clang
+    add_compile_options(-stdlib=libc++ -fcolor-diagnostics)
+    set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -stdlib=libc++ -lc++")
+endif ()
+
 # Link this 'library' to set the c++ standard / compile-time options requested
 add_library(gr4-example-app_options INTERFACE)
 target_compile_features(gr4-example-app_options INTERFACE cxx_std_23)
