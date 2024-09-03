@@ -12,7 +12,7 @@ struct TestContext {
 
 int main() {
   gr::Graph graph{};
-  TestContext pluginContext(std::vector<std::filesystem::path>{ ",/gr4-oot-dir/" });
+  TestContext pluginContext(std::vector<std::filesystem::path>{ "./gr4-oot-dir/" });
   gr::registerBlock<gr::oot::BSquare, float>(pluginContext.registry); // register a source defined block into the blocklib
 
   auto &source = graph.emplaceBlock("BSquare", "double", {}, pluginContext.loader); // load builtin block

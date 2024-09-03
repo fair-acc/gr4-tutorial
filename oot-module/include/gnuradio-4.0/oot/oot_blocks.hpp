@@ -130,7 +130,7 @@ public:
 
   float ceil = 49.f;
   void settingsChanged(const property_map & /*old*/,
-                        const property_map &updated) noexcept {
+                        const property_map & /*updated*/) noexcept {
     // check if the new settings are valid and update devices
   }
   float processOne(float inValue) {
