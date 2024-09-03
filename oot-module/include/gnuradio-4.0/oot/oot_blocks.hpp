@@ -141,12 +141,13 @@ public:
 /**
  * I) Annotations for Block/Port/Setting Documentation
  */
-class ISquare: public gr::Block<ISquare,  Doc<R""(
-@brief A super cool block doing important processing
-
-This block returns the power of 2 of the input clipped to a configurable value.
-)"">> {
+class ISquare: public gr::Block<ISquare> {
 public:
+  using Description = Doc<R""(
+  @brief A super cool block doing important processing
+
+  Returns the power of 2 clipped to a configurable value.
+  )"">;
   PortIn<float>       in;
   PortOut<float>      out;
 
